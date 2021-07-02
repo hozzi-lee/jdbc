@@ -26,7 +26,13 @@ public class AuthorSelectApp {
 //			query += "		  author_desc ";
 //			query += " FROM authors ";
 
-			pstmt = conn.prepareStatement(" SELECT author_id, author_name, author_desc FROM authors ");
+			pstmt = conn.prepareStatement(
+					" SELECT "
+					+ "		author_id, "
+					+ "		author_name, "
+					+ "		author_desc "
+					+ "FROM "
+					+ "		authors ");
 			
 //			pstmt = conn.prepareStatement(query);
 
@@ -34,12 +40,18 @@ public class AuthorSelectApp {
 			
 			// 4.결과처리
 			while(rs.next()) {
+				/*
 				int authorID = rs.getInt("author_id");
 				String authorName = rs.getString("author_name");
 				String authorDesc = rs.getString("author_desc");
-				
+				*/
+
+				int authorID = rs.getInt(1);
+				String authorName = rs.getString(2);
+				String authorDesc = rs.getString(3);
+
 				System.out.println(authorID + ", " + authorName + ", " + authorDesc);
-				
+
 			}
 
 		} catch (ClassNotFoundException e) {

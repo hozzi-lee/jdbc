@@ -21,7 +21,15 @@ public class BookSelectApp {
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "webdb", "webdb");
 			// 3. SQL문 준비 / 바인딩 / 실행
 
-			pstmt = conn.prepareStatement(" SELECT book_id, title, pubs, pub_date, author_id FROM books ");
+			pstmt = conn.prepareStatement(" "
+					+ " SELECT "
+					+ "		book_id, "
+					+ "		title, "
+					+ "		pubs, "
+					+ "		pub_date, "
+					+ "		author_id "
+					+ " FROM "
+					+ "		books ");
 
 			rs = pstmt.executeQuery();
 

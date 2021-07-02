@@ -21,10 +21,12 @@ public class BookInsertApp {
 			// 2. Connection 얻어오기
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "webdb", "webdb");
 			// 3. SQL문 준비 / 바인딩 / 실행
-			pstmt = conn.prepareStatement(" INSERT INTO books VALUES ( sqc_book_id.NEXTVAL, ?, ?, ?, ? ) ");
+			pstmt = conn.prepareStatement(" "
+					+ " INSERT INTO books "
+					+ " VALUES ( sqc_book_id.NEXTVAL, ?, ?, ?, ? ) ");
 			pstmt.setString(1, "이호진 자서전");
 			pstmt.setString(2, "호북");
-			pstmt.setString(3, "1993-10-07 00:00:00");
+			pstmt.setString(3, "1993/10/07");
 			pstmt.setInt(4, 3);
 
 			int count = pstmt.executeUpdate();

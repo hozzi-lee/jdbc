@@ -22,7 +22,18 @@ public class BookAuthorSelectApp {
 			// 3. SQL문 준비 / 바인딩 / 실행
 
 			pstmt = conn.prepareStatement(
-					" SELECT bok.book_id 책코드번호, bok.title 책제목, bok.pubs 출판사, bok.pub_date 출판일, bok.author_id 책의작가코드, atho.author_id 작가코드번호, atho.author_name 작가이름, atho.author_desc 작가정보 FROM books bok FULL JOIN authors atho ON bok.author_id = atho.author_id ");
+					" SELECT "
+					+ "		bok.book_id 책코드번호, "
+					+ "		bok.title 책제목, "
+					+ "		bok.pubs 출판사, "
+					+ "		bok.pub_date 출판일, "
+					+ "		bok.author_id \"책의 작가코드\", "
+					+ "		atho.author_id 작가코드번호, "
+					+ "		atho.author_name 작가이름, "
+					+ "		atho.author_desc 작가정보 "
+					+ " FROM books bok "
+					+ "		FULL JOIN authors atho "
+					+ "		ON bok.author_id = atho.author_id ");
 
 			rs = pstmt.executeQuery();
 
@@ -32,7 +43,7 @@ public class BookAuthorSelectApp {
 				String bookTitle = rs.getString("책제목");
 				String bookPubs = rs.getString("출판사");
 				String pubDate = rs.getString("출판일");
-				int bokAuthorID = rs.getInt("책의작가코드");
+				int bokAuthorID = rs.getInt("책의 작가코드");
 				int athoAuthorID = rs.getInt("작가코드번호");
 				String authorName = rs.getString("작가이름");
 				String authorDesc = rs.getString("작가정보");
