@@ -22,6 +22,19 @@ public class BookVo {
 		this.pubDate = pubDate;
 		this.authorID = authorID;
 	}
+	
+	public BookVo(String title, String pubs, String pubDate) {
+		this.title = title;
+		this.pubs = pubs;
+		this.pubDate = pubDate;
+	}
+	
+	public BookVo(String title, String pubs, String pubDate, int authorID) {
+		this.title = title;
+		this.pubs = pubs;
+		this.pubDate = pubDate;
+		this.authorID = authorID;
+	}
 
 	public int getBookID() {
 		return bookID;

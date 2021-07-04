@@ -44,6 +44,37 @@ public class BookDao {
 		}
 	}
 	
+	// INSERT
+	public int bookInsert(BookVo b) {
+		
+		int count = -1;
+		
+		getConnection();
+		
+		try {
+			pstmt = conn.prepareStatement(
+					" INSERT INTO "
+					+ " 		books "
+					+ " VALUES "
+					+ " 	( sqc_book_id.NEXTVAL, ?, ?, ?, ? ) "
+					);
+			pstmt.setString(1, b.getTitle());
+			pstmt.setString(2, b.getPubs());
+			pstmt.setString(3, b.getPubDate());
+			pstmt.setInt(4, b.getAuthorID());
+			count = pstmt.executeUpdate();
+
+			System.out.println(count + "건 추가");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		close();
+		
+		return count;
+		
+	}
+	
 	// SELECT
 	public List<BookVo> getBookList() {
 		List<BookVo> bookList = new ArrayList<BookVo>();
