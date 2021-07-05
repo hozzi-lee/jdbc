@@ -58,7 +58,7 @@ public class BookApp {
 
 				int udtCount = bookDao.bookUpdate(new BookVo(bookID, title, pubs, pubDate, authorID));
 				if (udtCount > 0) {
-					System.out.println("[삭제되었습니다.]");
+					System.out.println("[수정되었습니다.]");
 				} else {
 					System.out.println("[관리자에게 문의하세요(" + udtCount + ")]");
 				}
@@ -73,7 +73,7 @@ public class BookApp {
 
 				int dltCount = bookDao.bookDelete(new BookVo(bookID));
 				if (dltCount > 0) {
-					System.out.println("[수정되었습니다.]");
+					System.out.println("[삭제되었습니다.]");
 				} else {
 					System.out.println("[관리자에게 문의하세요(" + dltCount + ")]");
 				}
